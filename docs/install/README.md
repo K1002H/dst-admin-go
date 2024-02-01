@@ -16,7 +16,7 @@
 **第一次启动时会自动下载steamcmd和饥荒服务器，请耐心等待10-20分钟，你也可以使用挂载路径避免下载，可本地搭建使用wireguard与云组网为入口，自行进入容器设置wireguard配置文件**
 
 ```
-docker pull hujinbo23/dst-admin-go:1.2.0
+docker pull k1002h/dst-admin-go:1.2.8
 docker run -d \
     --name palworld-server \
     --cap-add=NET_ADMIN \
@@ -25,7 +25,7 @@ docker run -d \
     --restart Unless Stopped \
     -v $(pwd)/map:/root/.klei/DoNotStarveTogether \
     -p 8082:8082 \
-    hujinbo23/dst-admin-go:1.2.0
+    k1002h/dst-admin-go:1.2.8
 
 **路径挂载参考**
 由于很多白嫖怪暂时不提供
