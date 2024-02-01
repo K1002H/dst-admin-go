@@ -17,7 +17,13 @@
 
 ```
 docker pull hujinbo23/dst-admin-go:1.2.0
-docker run -d -p8082:8082 hujinbo23/dst-admin-go:1.2.0
+docker run -d \
+    --name palworld-server \
+    --cap-add=NET_ADMIN \
+    --cap-add=NET_RAW \
+    --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+    -p 8082:8082 \
+    hujinbo23/dst-admin-go:1.2.0
 
 **路径挂载参考**
 由于很多白嫖怪暂时不提供
