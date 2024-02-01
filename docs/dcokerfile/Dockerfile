@@ -1,13 +1,13 @@
-FROM debian:buster-slim
+FROM ubuntu:22.04
 
-LABEL maintainer="hujinbo23 jinbohu23@outlook.com"
+LABEL maintainer="xxxxx"
 LABEL description="DoNotStarveTogehter server panel written in golang.  github: https://github.com/hujinbo23/dst-admin-go"
 
 # Install packages
-RUN echo "deb http://mirrors.aliyun.com/debian/ buster main contrib non-free" > /etc/apt/sources.list && \
-    echo "deb http://mirrors.aliyun.com/debian/ buster-updates main contrib non-free" >> /etc/apt/sources.list && \
-    echo "deb http://mirrors.aliyun.com/debian/ buster-backports main contrib non-free" >> /etc/apt/sources.list && \
-    echo "deb http://mirrors.aliyun.com/debian-security buster/updates main contrib non-free" >> /etc/apt/sources.list && \
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse" > /etc/apt/sources.list && \
+    echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
+    echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse" >> /etc/apt/sources.list && \
+    echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse" >> /etc/apt/sources.list && \
    # dpkg --add-architecture i386 && \
    # apt-get update && \
    # apt-get install -y lib32stdc++6 libgcc1 libcurl4-gnutls-dev:i386 wget screen procps
@@ -25,8 +25,14 @@ RUN echo "deb http://mirrors.aliyun.com/debian/ buster main contrib non-free" > 
         screen \
         procps \
         sudo \
+        net-tools \
+        iproute2 \
+        openresolv \
+        iputils-ping \
+        wireguard-tools \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && sed -E -i 's/^(\s*)(.*sysctl -q net.ipv4.conf.all.src_valid_mark=1)/\1# \2/' /usr/bin/wg-quick
 
 # 设置工作目录
 WORKDIR /app
