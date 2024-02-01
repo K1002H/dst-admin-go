@@ -14,7 +14,7 @@
 ### docker 部署
 
 **第一次启动时会自动下载steamcmd和饥荒服务器，请耐心等待10-20分钟，你也可以使用挂载路径避免下载**
-**本地搭建使用wireguard与云组网为入口，自行进入容器设置wireguard配置文件**
+本地搭建使用wireguard与云组网为入口，自行进入容器设置wireguard配置文件
 
 ```
 docker pull hujinbo23/dst-admin-go:1.2.0
