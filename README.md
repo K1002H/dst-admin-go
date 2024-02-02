@@ -17,7 +17,7 @@ This is a management panel for Don't Starve Together, developed in Go. It offers
 ## 部署
 注意目录必须要有读写权限。
 
-点击查看 [部署文档](docs/install/install.md)
+点击查看 [部署文档](docs/install/)
 
 ## 预览
 
