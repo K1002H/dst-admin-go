@@ -18,7 +18,7 @@
 ```
 docker pull k1002h/dst-admin-go:1.2.8
 docker run -d \
-    --name palworld-server \
+    --name dst-admin-go \
     --cap-add=NET_ADMIN \
     --cap-add=NET_RAW \
     --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
@@ -26,9 +26,21 @@ docker run -d \
     -v $(pwd)/map:/root/.klei/DoNotStarveTogether \
     -p 8082:8082 \
     k1002h/dst-admin-go:1.2.8
+```
 
-**路径挂载参考**
-由于很多白嫖怪暂时不提供
+***主机模式***
+
+```
+docker pull k1002h/dst-admin-go:1.2.8
+docker run -d \
+    --name dst-admin-go \
+    --cap-add=NET_ADMIN \
+    --cap-add=NET_RAW \
+    --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+    --restart Unless Stopped \
+    -v $(pwd)/map:/root/.klei/DoNotStarveTogether \
+    --net=host \
+    k1002h/dst-admin-go:1.2.8
 ```
 
 **多房间版本 萌新勿用**
