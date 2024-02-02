@@ -22,7 +22,7 @@ docker run -d \
     --cap-add=NET_ADMIN \
     --cap-add=NET_RAW \
     --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
-    --restart Unless Stopped \
+    --restart unless-stopped \
     -v $(pwd)/map:/root/.klei/DoNotStarveTogether \
     -p 8082:8082 \
     k1002h/dst-admin-go:1.2.8
@@ -37,7 +37,7 @@ docker run -d \
     --cap-add=NET_ADMIN \
     --cap-add=NET_RAW \
     --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
-    --restart Unless Stopped \
+    --restart unless-stopped \
     -v $(pwd)/map:/root/.klei/DoNotStarveTogether \
     --net=host \
     k1002h/dst-admin-go:1.2.8
